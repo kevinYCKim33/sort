@@ -25,48 +25,10 @@
   start: concurrently fires anything that has start:whatever
 */
 
-// class Sorter {
-//   collection: number[];
+import { Sorter } from "./Sorter";
+import { NumbersCollection } from "./NumbersCollection";
 
-//   constructor(collection: number[]) {
-//     this.collection = collection;
-//   }
-// }
-
-// EQUIVALENT TO ABOVE:
-class Sorter {
-  constructor(public collection: number[] | string) {}
-
-  sort(): void {
-    const { length } = this.collection;
-    // All of this only works if collection is number[]
-    // If collection is an array of numbers
-    for (let i = 0; i < length; i++) {
-      for (let j = 0; j < length - i - 1; j++) {
-        // Type Guard for Arrays
-        if (this.collection instanceof Array) {
-          // TS now knows inside this block, this.collection is an Array
-          // suggests more Array methods
-          if (this.collection[j] > this.collection[j + 1]) {
-            const leftHand = this.collection[j];
-            this.collection[j] = this.collection[j + 1];
-            this.collection[j + 1] = leftHand;
-          }
-        }
-        // Type Guard for Strings
-        if (typeof this.collection === "string") {
-          // TS now knows inside this block, this.collection is a string
-          // suggests more string methods
-        }
-      }
-    }
-
-    // Only going to work if collection is a string
-    // If a collection is a string, do this logic instead:
-    //
-  }
-}
-
-const sorter = new Sorter([10, 3, -5, 0]);
+const numbersCollection = new NumbersCollection([10, 3, -5, 0]);
+const sorter = new Sorter(numbersCollection);
 sorter.sort();
-console.log(sorter.collection);
+console.log(numbersCollection.data);
