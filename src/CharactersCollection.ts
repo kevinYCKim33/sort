@@ -14,11 +14,13 @@ export class CharactersCollection {
   }
 
   swap(leftIndex: number, rightIndex: number): void {
-    const characters = this.data.split("");
-    const leftHand = characters[leftIndex];
-    characters[leftIndex] = characters[rightIndex];
-    characters[rightIndex] = leftHand;
+    // leftIndex: 1, rightIndex, 2
+    // this.data = 'acbd'
+    const characters = this.data.split(""); // ['a', 'c', 'b', 'd']
+    const leftHand = characters[leftIndex]; // 'c'
+    characters[leftIndex] = characters[rightIndex]; // ['a', 'b', 'b', 'd']
+    characters[rightIndex] = leftHand; // ['a', 'b', 'c', 'd']
 
-    this.data = characters.join(""); // hence you're not returning anything
+    this.data = characters.join(""); // this.data = 'abcd'
   }
 }
