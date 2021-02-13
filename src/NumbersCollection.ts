@@ -1,7 +1,7 @@
 export class NumbersCollection {
   constructor(public data: number[]) {}
 
-  // get: lets (forces) me to do new NumbersCollection([1,2,3]).length
+  // get: lets (forces) me do new NumbersCollection([1,2,3]).length
   // instead of new NumbersCollection([1,2,3]).length()
   get length(): number {
     return this.data.length;

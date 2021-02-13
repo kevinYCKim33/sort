@@ -7,9 +7,15 @@ import { NumbersCollection } from "./NumbersCollection";
 //   }
 // }
 
+interface Sortable {
+  length: number;
+  compare(leftIndex: number, rightIndex: number): boolean; // interface names don't have to match up
+  swap(leftIndex: number, rightIndex: number): void;
+}
+
 // EQUIVALENT TO ABOVE:
 export class Sorter {
-  constructor(public collection: NumbersCollection) {}
+  constructor(public collection: Sortable) {}
 
   sort(): void {
     const { length } = this.collection;
